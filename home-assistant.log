@@ -1,2 +1,2 @@
-2018-02-02 15:38:31 ERROR (SyncWorker_0) [homeassistant.util.yaml] Secret alarm_password not defined
-2018-02-02 15:38:33 ERROR (MainThread) [homeassistant.config] Invalid config for [alarm_control_panel.manual]: string value is None for dictionary value @ data['code']. Got None. (See ?, line ?). Please check the docs at https://home-assistant.io/components/alarm_control_panel.manual/
+2018-02-02 15:41:00 WARNING (MainThread) [homeassistant.components.media_player] Setup of platform cast is taking over 10 seconds.
+2018-02-02 15:41:01 WARNING (SyncWorker_10) [homeassistant.components.zwave] zwave not ready after 30 seconds, continuing anyway
