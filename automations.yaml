@@ -1,0 +1,127 @@
+- alias: Tänd lamporna i fönstren (ej sovrum/lilla vardagsrummet) vardagar
+  trigger:
+    platform: time
+    at: '05:00:00'
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    service: switch.turn_on
+    entity_id: group.Hus
+
+# Släck lamporna när solen går upp
+- alias: Släck fönsterlamporna när solen går upp
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    service: switch.turn_off
+
+# tänder lamporna i fönstren när solen går ner
+- alias: Tänd lamporna i fönstret när solen går ner
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:30:00"
+  action:
+    service: switch.turn_on
+
+# Stäng av fönsterlamporna kl 22 vardagar söndag->torsdag.
+- alias: Stäng av fönsterlampor kl 22 på vardagar
+  trigger:
+    platform: time
+    at: '22:00:00'
+  condition:
+  - condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - sun
+  action:
+    service: switch.turn_off
+
+# Stäng av fönsterlamporna kl 23 vardagar fredag->söndag.
+- alias: Stäng av fönsterlampor kl 23 på helgen
+  trigger:
+    platform: time
+    at: '23:00:00'
+  condition:
+  - condition: time
+    weekday:
+      - fri
+      - sat
+  action:
+    service: switch.turn_off
+
+### BIO Plex ###
+
+- alias: "stänger av lamporna i fönstret när plex spelar på bio"
+  trigger:
+    - platform: state
+      entity_id: media_player.bio
+      from: 'idle'
+      to: 'playing'
+  action:
+    service: switch.turn_off
+    entity_id: switch.vardagsrummet_switch
+
+- alias: "Tänder lamporna om man pausar bio"
+  trigger:
+    - platform: state
+      entity_id: media_player.bio
+      from: 'playing'
+      to: 'paused'
+  action:
+    service: switch.turn_on
+    entity_id: switch.vardagsrummet_switch
+
+- alias: "Tänder lamporna om man stoppar bio"
+  trigger:
+    - platform: state
+      entity_id: media_player.bio
+      from: 'playing'
+      to: 'stopped'
+  action:
+    service: switch.turn_on
+    entity_id: switch.vardagsrummet_switch
+
+- alias: "Släcker lamporna igen efter man pausat"
+  trigger:
+    - platform: state
+      entity_id: media_player.bio
+      from: 'paused'
+      to: 'playing'
+  action:
+    service: switch.turn_off
+    entity_id: switch.vardagsrummet_switch
+
+
+#### GARAGE ####
+# Om rörelse detekteras i garaget när larm aktiverat så aktivera sirenen och skicka push meddelande till Idas och Thomas telefon
+- alias: Motion Detected in the garage
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_garage_sensor
+    from: 'off'
+    to: 'on'
+  condition:
+      condition: state
+      entity_id: 'alarm_control_panel.ha_alarm'
+      state: 'armed_away'
+  action:
+    service: notify.ios_thomasiphone
+    data:
+      message: "Rörelse i garaget"
+      data:
+        subtitle: "LARM"

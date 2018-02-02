@@ -1,0 +1,2 @@
+2018-02-02 15:38:31 ERROR (SyncWorker_0) [homeassistant.util.yaml] Secret alarm_password not defined
+2018-02-02 15:38:33 ERROR (MainThread) [homeassistant.config] Invalid config for [alarm_control_panel.manual]: string value is None for dictionary value @ data['code']. Got None. (See ?, line ?). Please check the docs at https://home-assistant.io/components/alarm_control_panel.manual/

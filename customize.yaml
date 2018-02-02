@@ -1,0 +1,100 @@
+# Köket smartplug
+sensor.koket_alarm_level:
+  hidden: true
+sensor.koket_alarm_type:
+  hidden: true
+sensor.koket_exporting:
+  hidden: true
+sensor.koket_power:
+  hidden: true
+sensor.koket_power_management:
+  hidden: true
+sensor.koket_sourcenodeid:
+  hidden: true
+
+# Lilla vardagsrummet smartplug
+sensor.lilla_vardagsrummet_alarm_level:
+  hidden: true
+sensor.lilla_vardagsrummet_alarm_type:
+  hidden: true
+sensor.lilla_vardagsrummet_exporting:
+  hidden: true
+sensor.lilla_vardagsrummet_power:
+  hidden: true
+sensor.lilla_vardagsrummet_power_management:
+  hidden: true
+sensor.lilla_vardagsrummet_sourcenodeid:
+  hidden: true
+
+# Vardagsrummet smartplug
+sensor.vardagsrummet_alarm_level:
+  hidden: true
+sensor.vardagsrummet_alarm_type:
+  hidden: true
+sensor.vardagsrummet_exporting:
+  hidden: true
+sensor.vardagsrummet_power:
+  hidden: true
+sensor.vardagsrummet_power_management:
+  hidden: true
+sensor.vardagsrummet_sourcenodeid:
+  hidden: true
+
+# Garage Motion sensor
+sensor.motion_garage_alarm_type:
+  hidden: true
+sensor.motion_garage_burglar:
+  hidden: true
+sensor.motion_garage_general:
+  hidden: true
+sensor.motion_garage_seismic_intensity:
+  hidden: true
+sensor.motion_garage_sourcenodeid:
+  hidden: true
+binary_sensor.motion_garage_sensor:
+  friendly_name: "Rörelse"
+sensor.motion_garage_temperature:
+  friendly_name: "Temperatur"
+sensor.motion_garage_luminance:
+  friendly_name: "Ljusstyrka"
+sensor.motion_garage_alarm_level:
+  hidden: true
+
+# Switches
+switch.lilla_vardagsrummet_switch:
+  icon: mdi:lightbulb-outline
+  homebridge_visible: true
+  friendly_name: "Lilla vardagsrummet fönsterlampor"
+
+switch.sovrummet_switch:
+  icon: mdi:lightbulb-outline
+  homebridge_visible: true
+  friendly_name: "Sovrummet fönsterlampor"
+
+switch.vardagsrummet_switch:
+  icon: mdi:lightbulb-outline
+  homebridge_visible: true
+  friendly_name: "Vardagsrummet fönsterlampor"
+
+switch.koket_switch:
+  icon: mdi:lightbulb-outline
+  homebridge_visible: true
+  friendly_name: "Köket fönsterlampor"
+
+switch.kontoret_switch:
+  icon: mdi:lightbulb-outline
+  homebridge_visible: true
+  friendly_name: "Kontoret fönsterlampor"
+
+switch.gastrummet_switch:
+  icon: mdi:lightbulb-outline
+  homebridge_visible: true
+  friendly_name: "Gästrummet fönsterlampor"
+
+# Väder
+sensor.yr_symbol:
+  friendly_name: "Väder"
+
+# Alarm
+input_boolean.home_armed:
+  friendly_name: "Larm aktiverat"

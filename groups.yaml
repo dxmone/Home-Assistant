@@ -1,0 +1,70 @@
+# VIEWS
+Home_view:
+  view: yes
+  name: "Hökerum"
+  entities:
+    - device_tracker.idasiphonelan
+    - device_tracker.thomasiphonelan
+    - group.Larm
+    - group.Hus2
+    - group.Energi
+    - group.Miljo
+
+Garage_view:
+  name: "Garage"
+  view: yes
+  entities:
+    - group.Garage
+
+
+## GROUPS
+Larm:
+  name: "Larm"
+  entities:
+  #  - input_boolean.home_armed
+    - alarm_control_panel.ha_alarm
+
+Hus2:
+  name: Hökerum
+  entities:
+    - switch.gastrummet_switch
+    - switch.kontoret_switch
+    - switch.koket_switch
+    - switch.vardagsrummet_switch
+    - switch.sovrummet_switch
+    - switch.lilla_vardagsrummet_switch
+
+Hus:
+  name: Hökerum Ej sovrum/Lilla Vardagsrummet
+  entities:
+    - switch.gastrummet_switch
+    - switch.kontoret_switch
+    - switch.koket_switch
+    - switch.vardagsrummet_switch
+
+
+Energi:
+  name: "Energiförbrukning"
+  entities:
+    - sensor.koket_energy
+    - sensor.lilla_vardagsrummet_energy
+    - sensor.vardagsrummet_energy
+
+Garage:
+  name: "Garage"
+  entities:
+    - sensor.motion_garage_alarm_level
+    - sensor.motion_garage_alarm_type
+    - sensor.motion_garage_burglar
+    - sensor.motion_garage_general
+    - sensor.motion_garage_luminance
+    - sensor.motion_garage_seismic_intensity
+    - sensor.motion_garage_sourcenodeid
+    - sensor.motion_garage_temperature
+    - binary_sensor.motion_garage_sensor
+
+Miljo:
+  name: "Miljö"
+  entities:
+    - sensor.yr_symbol
+    - sun.sun
