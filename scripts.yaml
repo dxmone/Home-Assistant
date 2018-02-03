@@ -1,0 +1,7 @@
+# Turn on the sirens
+siren:
+    alias: siren
+    sequence:
+    - alias: 'starta sirenen'
+      service: switch.turn_on
+      entity_id: switch.garage_siren_switch
