@@ -60,6 +60,11 @@ sensor.motion_garage_luminance:
 sensor.motion_garage_alarm_level:
   hidden: true
 
+# Garage garage_siren
+switch.garage_siren_switch:
+  icon: mdi:bullhorn
+  friendly_name: "Siren Garage"
+
 # Switches
 switch.lilla_vardagsrummet_switch:
   icon: mdi:lightbulb-outline
