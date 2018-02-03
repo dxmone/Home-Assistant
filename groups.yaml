@@ -62,6 +62,7 @@ Garage:
     - sensor.motion_garage_sourcenodeid
     - sensor.motion_garage_temperature
     - binary_sensor.motion_garage_sensor
+    - switch.garage_siren_switch
 
 Miljo:
   name: "Miljö"
