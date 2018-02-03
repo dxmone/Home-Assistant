@@ -108,7 +108,7 @@
 
 
 #### GARAGE ####
-# Om rörelse detekteras i garaget när larm aktiverat så aktivera sirenen och skicka push meddelande till Idas och Thomas telefon
+# Om rörelse detekteras i garaget när larm aktiverat så aktivera scriptet siren som drar igång larmet.
 - alias: Motion Detected in the garage
   trigger:
     platform: state
@@ -120,8 +120,22 @@
       entity_id: 'alarm_control_panel.ha_alarm'
       state: 'armed_away'
   action:
-    service: notify.ios_thomasiphone
-    data:
-      message: "Rörelse i garaget"
+    - service: script.turn_on
+      entity_id: script.siren
+    - service: notify.ios_thomasiphone
       data:
-        subtitle: "LARM"
+        message: "Rörelse i garaget"
+        data:
+          subtitle: "LARM"
+
+### LARM ###
+
+# Vid avlarmning stäng av sirenen
+- alias: Avlarma
+  trigger:
+    platform: state
+    entity_id: alarm_control_panel.ha_alarm
+    to: 'disarmed'
+  action:
+    service: switch.turn_off
+    entity_id: switch.garage_siren_switch
