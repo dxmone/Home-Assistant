@@ -34,6 +34,7 @@
     offset: "-00:30:00"
   action:
     service: switch.turn_on
+    entity_id: group.Hus2
 
 # Stäng av fönsterlamporna kl 22 vardagar söndag->torsdag.
 - alias: Stäng av fönsterlampor kl 22 på vardagar
@@ -50,7 +51,7 @@
       - sun
   action:
     service: switch.turn_off
-
+    entity_id: group.Hus2
 # Stäng av fönsterlamporna kl 23 vardagar fredag->söndag.
 - alias: Stäng av fönsterlampor kl 23 på helgen
   trigger:
