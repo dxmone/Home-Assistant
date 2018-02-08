@@ -1,7 +1,7 @@
 - alias: Tänd lamporna i fönstren (ej sovrum/lilla vardagsrummet) vardagar
   trigger:
     platform: time
-    at: '05:00:00'
+    at: '06:00:00'
   condition:
     - condition: time
       weekday:
